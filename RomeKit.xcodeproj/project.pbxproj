@@ -9,7 +9,22 @@
 /* Begin PBXBuildFile section */
 		A1A19C551CA7731D00D38032 /* RomeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A19C541CA7731D00D38032 /* RomeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1A19C5C1CA7731D00D38032 /* RomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A19C511CA7731D00D38032 /* RomeKit.framework */; };
-		A1A19C611CA7731D00D38032 /* RomeKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A19C601CA7731D00D38032 /* RomeKitTests.swift */; };
+		A1CE5C931CA83FEB007D705B /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CE5C911CA83FEB007D705B /* ObjectMapper.framework */; };
+		A1CE5C941CA83FEB007D705B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CE5C921CA83FEB007D705B /* Alamofire.framework */; };
+		A1CE5C9C1CA89EED007D705B /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE5C9A1CA89EED007D705B /* Client.swift */; };
+		A1CE5C9D1CA89EED007D705B /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE5C9B1CA89EED007D705B /* Asset.swift */; };
+		A1CE5CA11CA8A06A007D705B /* ClientModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE5CA01CA8A06A007D705B /* ClientModelTests.swift */; };
+		A1CE5CA31CA8A0F9007D705B /* clients.json in Resources */ = {isa = PBXBuildFile; fileRef = A1CE5CA21CA8A0F9007D705B /* clients.json */; };
+		A1CE5CA71CA8A199007D705B /* AssetModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE5CA61CA8A199007D705B /* AssetModelTests.swift */; };
+		A1CE5CA91CA8A1F1007D705B /* assets.json in Resources */ = {isa = PBXBuildFile; fileRef = A1CE5CA81CA8A1F1007D705B /* assets.json */; };
+		A1CE5CAB1CA8A1FE007D705B /* asset.json in Resources */ = {isa = PBXBuildFile; fileRef = A1CE5CAA1CA8A1FE007D705B /* asset.json */; };
+		A1CE5CAD1CA8A211007D705B /* client.json in Resources */ = {isa = PBXBuildFile; fileRef = A1CE5CAC1CA8A211007D705B /* client.json */; };
+		A1CE5CAF1CA8A6B8007D705B /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CE5C911CA83FEB007D705B /* ObjectMapper.framework */; };
+		A1CE5CB01CA8A6BC007D705B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CE5C921CA83FEB007D705B /* Alamofire.framework */; };
+		A1CE5CB51CA8A8B7007D705B /* ObjectMapper.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A1CE5C911CA83FEB007D705B /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A1CE5CB61CA8A8B7007D705B /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A1CE5C921CA83FEB007D705B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A1CE5CB91CA8B1D9007D705B /* FileHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE5CB81CA8B1D9007D705B /* FileHelpers.swift */; };
+		A1CE5CBB1CA8BBB3007D705B /* ISO8601MilliSecondsDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE5CBA1CA8BBB3007D705B /* ISO8601MilliSecondsDateTransform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,13 +37,39 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A1CE5CB41CA8A8A7007D705B /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A1CE5CB51CA8A8B7007D705B /* ObjectMapper.framework in Copy Frameworks */,
+				A1CE5CB61CA8A8B7007D705B /* Alamofire.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A1A19C511CA7731D00D38032 /* RomeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RomeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A19C541CA7731D00D38032 /* RomeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RomeKit.h; sourceTree = "<group>"; };
 		A1A19C561CA7731D00D38032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1A19C5B1CA7731D00D38032 /* RomeKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RomeKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1A19C601CA7731D00D38032 /* RomeKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomeKitTests.swift; sourceTree = "<group>"; };
 		A1A19C621CA7731D00D38032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1CE5C911CA83FEB007D705B /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/Mac/ObjectMapper.framework; sourceTree = SOURCE_ROOT; };
+		A1CE5C921CA83FEB007D705B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = SOURCE_ROOT; };
+		A1CE5C9A1CA89EED007D705B /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Client.swift; path = Models/Client.swift; sourceTree = "<group>"; };
+		A1CE5C9B1CA89EED007D705B /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = Models/Asset.swift; sourceTree = "<group>"; };
+		A1CE5CA01CA8A06A007D705B /* ClientModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientModelTests.swift; sourceTree = "<group>"; };
+		A1CE5CA21CA8A0F9007D705B /* clients.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = clients.json; path = JSON/clients.json; sourceTree = "<group>"; };
+		A1CE5CA61CA8A199007D705B /* AssetModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetModelTests.swift; sourceTree = "<group>"; };
+		A1CE5CA81CA8A1F1007D705B /* assets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = assets.json; path = JSON/assets.json; sourceTree = "<group>"; };
+		A1CE5CAA1CA8A1FE007D705B /* asset.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = asset.json; path = JSON/asset.json; sourceTree = "<group>"; };
+		A1CE5CAC1CA8A211007D705B /* client.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = client.json; path = JSON/client.json; sourceTree = "<group>"; };
+		A1CE5CB81CA8B1D9007D705B /* FileHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileHelpers.swift; path = Utilities/FileHelpers.swift; sourceTree = "<group>"; };
+		A1CE5CBA1CA8BBB3007D705B /* ISO8601MilliSecondsDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISO8601MilliSecondsDateTransform.swift; path = Utilities/ISO8601MilliSecondsDateTransform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1CE5C931CA83FEB007D705B /* ObjectMapper.framework in Frameworks */,
+				A1CE5C941CA83FEB007D705B /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1CE5CAF1CA8A6B8007D705B /* ObjectMapper.framework in Frameworks */,
+				A1CE5CB01CA8A6BC007D705B /* Alamofire.framework in Frameworks */,
 				A1A19C5C1CA7731D00D38032 /* RomeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +116,9 @@
 		A1A19C531CA7731D00D38032 /* RomeKit */ = {
 			isa = PBXGroup;
 			children = (
+				A1CE5CAE1CA8A497007D705B /* Utilities */,
+				A1CE5C951CA89C09007D705B /* Models */,
+				A1CE5C901CA83FDB007D705B /* Frameworks */,
 				A1A19C541CA7731D00D38032 /* RomeKit.h */,
 				A1A19C561CA7731D00D38032 /* Info.plist */,
 			);
@@ -80,10 +128,58 @@
 		A1A19C5F1CA7731D00D38032 /* RomeKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				A1A19C601CA7731D00D38032 /* RomeKitTests.swift */,
+				A1CE5CB71CA8B1B3007D705B /* Utilities */,
+				A1CE5C9E1CA89F72007D705B /* JSON */,
+				A1CE5CA01CA8A06A007D705B /* ClientModelTests.swift */,
+				A1CE5CA61CA8A199007D705B /* AssetModelTests.swift */,
 				A1A19C621CA7731D00D38032 /* Info.plist */,
 			);
 			path = RomeKitTests;
+			sourceTree = "<group>";
+		};
+		A1CE5C901CA83FDB007D705B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A1CE5C911CA83FEB007D705B /* ObjectMapper.framework */,
+				A1CE5C921CA83FEB007D705B /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1CE5C951CA89C09007D705B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A1CE5C9A1CA89EED007D705B /* Client.swift */,
+				A1CE5C9B1CA89EED007D705B /* Asset.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A1CE5C9E1CA89F72007D705B /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				A1CE5CAC1CA8A211007D705B /* client.json */,
+				A1CE5CA21CA8A0F9007D705B /* clients.json */,
+				A1CE5CA81CA8A1F1007D705B /* assets.json */,
+				A1CE5CAA1CA8A1FE007D705B /* asset.json */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		A1CE5CAE1CA8A497007D705B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A1CE5CBA1CA8BBB3007D705B /* ISO8601MilliSecondsDateTransform.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		A1CE5CB71CA8B1B3007D705B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A1CE5CB81CA8B1D9007D705B /* FileHelpers.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +221,7 @@
 				A1A19C571CA7731D00D38032 /* Sources */,
 				A1A19C581CA7731D00D38032 /* Frameworks */,
 				A1A19C591CA7731D00D38032 /* Resources */,
+				A1CE5CB41CA8A8A7007D705B /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,6 +280,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1CE5CA91CA8A1F1007D705B /* assets.json in Resources */,
+				A1CE5CAB1CA8A1FE007D705B /* asset.json in Resources */,
+				A1CE5CAD1CA8A211007D705B /* client.json in Resources */,
+				A1CE5CA31CA8A0F9007D705B /* clients.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1CE5C9D1CA89EED007D705B /* Asset.swift in Sources */,
+				A1CE5C9C1CA89EED007D705B /* Client.swift in Sources */,
+				A1CE5CBB1CA8BBB3007D705B /* ISO8601MilliSecondsDateTransform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +304,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1A19C611CA7731D00D38032 /* RomeKitTests.swift in Sources */,
+				A1CE5CB91CA8B1D9007D705B /* FileHelpers.swift in Sources */,
+				A1CE5CA71CA8A199007D705B /* AssetModelTests.swift in Sources */,
+				A1CE5CA11CA8A06A007D705B /* ClientModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +345,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/OSX/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -287,6 +394,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/OSX/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -306,11 +414,16 @@
 		A1A19C661CA7731D00D38032 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = RomeKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -318,17 +431,23 @@
 				PRODUCT_BUNDLE_IDENTIFIER = OneFourSixBC.RomeKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		A1A19C671CA7731D00D38032 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = RomeKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -343,6 +462,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = RomeKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = OneFourSixBC.RomeKitTests;
@@ -354,6 +477,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = RomeKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = OneFourSixBC.RomeKitTests;
@@ -380,6 +507,7 @@
 				A1A19C671CA7731D00D38032 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1A19C681CA7731D00D38032 /* Build configuration list for PBXNativeTarget "RomeKitTests" */ = {
 			isa = XCConfigurationList;
@@ -388,6 +516,7 @@
 				A1A19C6A1CA7731D00D38032 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

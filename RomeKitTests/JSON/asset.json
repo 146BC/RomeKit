@@ -1,0 +1,10 @@
+{
+    "_id": "25f68e7701fc5b12a0d17e32",
+    "updatedAt": "2016-04-22T13:28:23.422Z",
+    "createdAt": "2016-02-26T12:25:22.422Z",
+    "extension": "zip",
+    "revision": "3.3.0",
+    "name": "Alamofire",
+    "active": true,
+    "__v": 0
+}
