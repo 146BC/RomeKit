@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A18931361CAD6A1200458B69 /* asset.json in Resources */ = {isa = PBXBuildFile; fileRef = A18931321CAD6A1200458B69 /* asset.json */; };
+		A18931371CAD6A1200458B69 /* assets.json in Resources */ = {isa = PBXBuildFile; fileRef = A18931331CAD6A1200458B69 /* assets.json */; };
+		A18931381CAD6A1200458B69 /* clients.json in Resources */ = {isa = PBXBuildFile; fileRef = A18931341CAD6A1200458B69 /* clients.json */; };
+		A18931391CAD6A1200458B69 /* client.json in Resources */ = {isa = PBXBuildFile; fileRef = A18931351CAD6A1200458B69 /* client.json */; };
+		A189313B1CAD6A8000458B69 /* sample.zip in Resources */ = {isa = PBXBuildFile; fileRef = A189313A1CAD6A8000458B69 /* sample.zip */; };
+		A189313D1CAD6AF300458B69 /* AssetIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A189313C1CAD6AF300458B69 /* AssetIntegrationTests.swift */; };
 		A1A19C551CA7731D00D38032 /* RomeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A19C541CA7731D00D38032 /* RomeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1A19C5C1CA7731D00D38032 /* RomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A19C511CA7731D00D38032 /* RomeKit.framework */; };
 		A1CE5C931CA83FEB007D705B /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CE5C911CA83FEB007D705B /* ObjectMapper.framework */; };
 		A1CE5C941CA83FEB007D705B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CE5C921CA83FEB007D705B /* Alamofire.framework */; };
 		A1CE5C9C1CA89EED007D705B /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE5C9A1CA89EED007D705B /* Client.swift */; };
 		A1CE5C9D1CA89EED007D705B /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE5C9B1CA89EED007D705B /* Asset.swift */; };
-		A1CE5CA31CA8A0F9007D705B /* clients.json in Resources */ = {isa = PBXBuildFile; fileRef = A1CE5CA21CA8A0F9007D705B /* clients.json */; };
-		A1CE5CA91CA8A1F1007D705B /* assets.json in Resources */ = {isa = PBXBuildFile; fileRef = A1CE5CA81CA8A1F1007D705B /* assets.json */; };
-		A1CE5CAB1CA8A1FE007D705B /* asset.json in Resources */ = {isa = PBXBuildFile; fileRef = A1CE5CAA1CA8A1FE007D705B /* asset.json */; };
-		A1CE5CAD1CA8A211007D705B /* client.json in Resources */ = {isa = PBXBuildFile; fileRef = A1CE5CAC1CA8A211007D705B /* client.json */; };
 		A1CE5CB91CA8B1D9007D705B /* FileHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE5CB81CA8B1D9007D705B /* FileHelpers.swift */; };
 		A1CE5CBB1CA8BBB3007D705B /* ISO8601MilliSecondsDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE5CBA1CA8BBB3007D705B /* ISO8601MilliSecondsDateTransform.swift */; };
 		A1CE5CC61CAB2F68007D705B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE5CC51CAB2F68007D705B /* NetworkManager.swift */; };
@@ -55,6 +57,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A18931321CAD6A1200458B69 /* asset.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = asset.json; path = "Sample Data/asset.json"; sourceTree = "<group>"; };
+		A18931331CAD6A1200458B69 /* assets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = assets.json; path = "Sample Data/assets.json"; sourceTree = "<group>"; };
+		A18931341CAD6A1200458B69 /* clients.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = clients.json; path = "Sample Data/clients.json"; sourceTree = "<group>"; };
+		A18931351CAD6A1200458B69 /* client.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = client.json; path = "Sample Data/client.json"; sourceTree = "<group>"; };
+		A189313A1CAD6A8000458B69 /* sample.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = sample.zip; path = ../../../../../../../../../Users/bernard/Desktop/sample.zip; sourceTree = "<group>"; };
+		A189313C1CAD6AF300458B69 /* AssetIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssetIntegrationTests.swift; path = "Integration Tests/AssetIntegrationTests.swift"; sourceTree = "<group>"; };
 		A1A19C511CA7731D00D38032 /* RomeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RomeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A19C541CA7731D00D38032 /* RomeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RomeKit.h; sourceTree = "<group>"; };
 		A1A19C561CA7731D00D38032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,10 +72,6 @@
 		A1CE5C921CA83FEB007D705B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = SOURCE_ROOT; };
 		A1CE5C9A1CA89EED007D705B /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Client.swift; path = Models/Client.swift; sourceTree = "<group>"; };
 		A1CE5C9B1CA89EED007D705B /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = Models/Asset.swift; sourceTree = "<group>"; };
-		A1CE5CA21CA8A0F9007D705B /* clients.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = clients.json; path = JSON/clients.json; sourceTree = "<group>"; };
-		A1CE5CA81CA8A1F1007D705B /* assets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = assets.json; path = JSON/assets.json; sourceTree = "<group>"; };
-		A1CE5CAA1CA8A1FE007D705B /* asset.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = asset.json; path = JSON/asset.json; sourceTree = "<group>"; };
-		A1CE5CAC1CA8A211007D705B /* client.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = client.json; path = JSON/client.json; sourceTree = "<group>"; };
 		A1CE5CB81CA8B1D9007D705B /* FileHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileHelpers.swift; path = Utilities/FileHelpers.swift; sourceTree = "<group>"; };
 		A1CE5CBA1CA8BBB3007D705B /* ISO8601MilliSecondsDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISO8601MilliSecondsDateTransform.swift; path = Utilities/ISO8601MilliSecondsDateTransform.swift; sourceTree = "<group>"; };
 		A1CE5CC51CAB2F68007D705B /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Networking/NetworkManager.swift; sourceTree = "<group>"; };
@@ -143,7 +147,7 @@
 				A1CE5CD61CAB55B1007D705B /* Integration Tests */,
 				A1CE5CD51CAB5574007D705B /* Model Tests */,
 				A1CE5CB71CA8B1B3007D705B /* Utilities */,
-				A1CE5C9E1CA89F72007D705B /* JSON */,
+				A1CE5C9E1CA89F72007D705B /* Sample Data */,
 				A1A19C621CA7731D00D38032 /* Info.plist */,
 			);
 			path = RomeKitTests;
@@ -167,15 +171,16 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		A1CE5C9E1CA89F72007D705B /* JSON */ = {
+		A1CE5C9E1CA89F72007D705B /* Sample Data */ = {
 			isa = PBXGroup;
 			children = (
-				A1CE5CAC1CA8A211007D705B /* client.json */,
-				A1CE5CA21CA8A0F9007D705B /* clients.json */,
-				A1CE5CA81CA8A1F1007D705B /* assets.json */,
-				A1CE5CAA1CA8A1FE007D705B /* asset.json */,
+				A189313A1CAD6A8000458B69 /* sample.zip */,
+				A18931321CAD6A1200458B69 /* asset.json */,
+				A18931331CAD6A1200458B69 /* assets.json */,
+				A18931341CAD6A1200458B69 /* clients.json */,
+				A18931351CAD6A1200458B69 /* client.json */,
 			);
-			name = JSON;
+			name = "Sample Data";
 			sourceTree = "<group>";
 		};
 		A1CE5CAE1CA8A497007D705B /* Extensions */ = {
@@ -228,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				A1CE5CDB1CAB561D007D705B /* ClientIntegrationTests.swift */,
+				A189313C1CAD6AF300458B69 /* AssetIntegrationTests.swift */,
 			);
 			name = "Integration Tests";
 			sourceTree = "<group>";
@@ -330,10 +336,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1CE5CA91CA8A1F1007D705B /* assets.json in Resources */,
-				A1CE5CAB1CA8A1FE007D705B /* asset.json in Resources */,
-				A1CE5CAD1CA8A211007D705B /* client.json in Resources */,
-				A1CE5CA31CA8A0F9007D705B /* clients.json in Resources */,
+				A18931371CAD6A1200458B69 /* assets.json in Resources */,
+				A18931381CAD6A1200458B69 /* clients.json in Resources */,
+				A18931391CAD6A1200458B69 /* client.json in Resources */,
+				A18931361CAD6A1200458B69 /* asset.json in Resources */,
+				A189313B1CAD6A8000458B69 /* sample.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1CE5CD91CAB55E3007D705B /* AssetModelTests.swift in Sources */,
+				A189313D1CAD6AF300458B69 /* AssetIntegrationTests.swift in Sources */,
 				A1CE5CDE1CAB57C4007D705B /* Networking.swift in Sources */,
 				A1CE5CDC1CAB561D007D705B /* ClientIntegrationTests.swift in Sources */,
 				A1CE5CB91CA8B1D9007D705B /* FileHelpers.swift in Sources */,

@@ -18,7 +18,7 @@ public class Clients {
                     completionHandler(nil, Errors.ErrorMappingClients)
                 }
             case .Failure:
-                completionHandler(nil, Errors.ErrorFetchingClients)
+                completionHandler(nil, Errors.errorTypeFromResponse(response.response))
             }
             
         }
@@ -32,7 +32,7 @@ public class Clients {
         let url = RomeRoutes.url(.Clients, params: [])
         let params = ["name": name]
         
-        NetworkManager.sharedInstance().request(.POST, url, parameters: params, encoding: ParameterEncoding.JSON, headers: nil).responseString { response in
+        NetworkManager.sharedInstance().request(.POST, url, parameters: params, encoding: .JSON, headers: nil).responseString { response in
             
             switch response.result {
             case .Success(let clientJSON):
@@ -42,7 +42,7 @@ public class Clients {
                     completionHandler(nil, Errors.ErrorMappingClients)
                 }
             case .Failure:
-                completionHandler(nil, Errors.ErrorAddingClient)
+                completionHandler(nil, Errors.errorTypeFromResponse(response.response))
             }
             
         }
@@ -60,7 +60,7 @@ public class Clients {
             case .Success:
                 completionHandler(true, nil)
             case .Failure:
-                completionHandler(false, Errors.ErrorDeletingClient)
+                completionHandler(false, Errors.errorTypeFromResponse(response.response))
             }
             
         }

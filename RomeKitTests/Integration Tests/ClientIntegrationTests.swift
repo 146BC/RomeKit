@@ -10,10 +10,6 @@ class ClientIntegrationTests: XCTestCase {
         
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-    
     func testAddClient() {
         
         let expectation = expectationWithDescription(#function)
@@ -21,11 +17,9 @@ class ClientIntegrationTests: XCTestCase {
         Clients.create("MacMini", completionHandler: { (client, error) in
             
             if let client = client {
-                
-                XCTAssertTrue(client.name == "MacMini")
+                XCTAssertEqual(client.name, "MacMini")
                 XCTAssertNotNil(client.api_key)
                 XCTAssertNotNil(client.id)
-                
             } else {
                 XCTFail("Error adding client")
             }
@@ -51,11 +45,11 @@ class ClientIntegrationTests: XCTestCase {
                 
                 XCTAssertTrue(clients.count == 2)
                 
-                XCTAssertTrue(clients[0].name == "Master")
+                XCTAssertEqual(clients[0].name, "Master")
                 XCTAssertNotNil(clients[0].api_key)
                 XCTAssertNotNil(clients[0].id)
                 
-                XCTAssertTrue(clients[1].name == "MacMini")
+                XCTAssertEqual(clients[1].name, "MacMini")
                 XCTAssertNotNil(clients[1].api_key)
                 XCTAssertNotNil(clients[1].id)
                 
@@ -67,11 +61,9 @@ class ClientIntegrationTests: XCTestCase {
         }
         
         waitForExpectationsWithTimeout(10.0) { error in
-            
             if let error = error {
                 XCTFail("Error: \(error.localizedDescription)")
             }
-            
         }
         
     }
@@ -85,10 +77,8 @@ class ClientIntegrationTests: XCTestCase {
         Clients.all { (clients, error) in
             
             if let clients = clients {
-                
                 XCTAssertTrue(clients.count == 2)
                 newClientId = clients[1].id!
-                
             }
             
             Clients.delete(newClientId, completionHandler: { (deleted, error) in
@@ -113,11 +103,9 @@ class ClientIntegrationTests: XCTestCase {
         }
         
         waitForExpectationsWithTimeout(10.0) { error in
-            
             if let error = error {
                 XCTFail("Error: \(error.localizedDescription)")
             }
-            
         }
         
     }

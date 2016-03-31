@@ -14,4 +14,16 @@ class FileHelpers {
         
     }
     
+    static func loadZipDataFromFile(name: String) -> NSData? {
+        
+        if let path = NSBundle(forClass: self).pathForResource(name, ofType: ".zip") {
+            if let data = NSData(contentsOfFile: path) {
+                return data
+            }
+        }
+        
+        return nil
+        
+    }
+    
 }
