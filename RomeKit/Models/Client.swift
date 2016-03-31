@@ -2,9 +2,9 @@ import ObjectMapper
 
 public class Client: Mappable {
     
-    var id: String?
-    var name: String?
-    var api_key: String?
+    public var id: String?
+    public var name: String?
+    public var api_key: String?
     
     required public init?(_ map: Map) {
         

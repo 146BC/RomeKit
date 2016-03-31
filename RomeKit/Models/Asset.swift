@@ -2,13 +2,13 @@ import ObjectMapper
 
 public class Asset: Mappable {
     
-    var id: String?
-    var name: String?
-    var revision: String?
-    var file_extension: String?
-    var active: Bool?
-    var created_at: NSDate?
-    var updated_at: NSDate?
+    public var id: String?
+    public var name: String?
+    public var revision: String?
+    public var file_extension: String?
+    public var active: Bool?
+    public var created_at: NSDate?
+    public var updated_at: NSDate?
     
     required public init?(_ map: Map) {
         
