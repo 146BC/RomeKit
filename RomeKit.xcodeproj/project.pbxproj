@@ -13,6 +13,8 @@
 		A18931391CAD6A1200458B69 /* client.json in Resources */ = {isa = PBXBuildFile; fileRef = A18931351CAD6A1200458B69 /* client.json */; };
 		A189313D1CAD6AF300458B69 /* AssetIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A189313C1CAD6AF300458B69 /* AssetIntegrationTests.swift */; };
 		A18931431CAFF3D500458B69 /* sample.zip in Resources */ = {isa = PBXBuildFile; fileRef = A18931421CAFF3D500458B69 /* sample.zip */; };
+		A189314D1CB03D6E00458B69 /* ObjectMapper.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A1CE5C911CA83FEB007D705B /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A189314E1CB03D6E00458B69 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A1CE5C921CA83FEB007D705B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1A19C551CA7731D00D38032 /* RomeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A19C541CA7731D00D38032 /* RomeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1A19C5C1CA7731D00D38032 /* RomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A19C511CA7731D00D38032 /* RomeKit.framework */; };
 		A1CE5C931CA83FEB007D705B /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CE5C911CA83FEB007D705B /* ObjectMapper.framework */; };
@@ -51,6 +53,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A189314D1CB03D6E00458B69 /* ObjectMapper.framework in CopyFiles */,
+				A189314E1CB03D6E00458B69 /* Alamofire.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +416,6 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/OSX/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -461,7 +464,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/OSX/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -489,12 +491,16 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"Carthage/Build/**",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"Carthage/Build/**",
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = RomeKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/Mac";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = OneFourSixBC.RomeKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -513,12 +519,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"Carthage/Build/**",
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = RomeKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/Mac";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = OneFourSixBC.RomeKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -531,10 +537,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"Carthage/Build/**",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = RomeKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(PROJECT_DIR)/Carthage/Build/Mac";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = OneFourSixBC.RomeKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -546,10 +553,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"Carthage/Build/**",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = RomeKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(PROJECT_DIR)/Carthage/Build/Mac";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = OneFourSixBC.RomeKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
