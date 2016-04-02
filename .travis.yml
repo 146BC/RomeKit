@@ -9,7 +9,6 @@ before_install:
   - brew update
   - brew install carthage
   - brew install mongodb
-  - brew install node
 
 script:
   - mongod --fork --config /usr/local/etc/mongod.conf
