@@ -11,8 +11,8 @@
 		A18931371CAD6A1200458B69 /* assets.json in Resources */ = {isa = PBXBuildFile; fileRef = A18931331CAD6A1200458B69 /* assets.json */; };
 		A18931381CAD6A1200458B69 /* clients.json in Resources */ = {isa = PBXBuildFile; fileRef = A18931341CAD6A1200458B69 /* clients.json */; };
 		A18931391CAD6A1200458B69 /* client.json in Resources */ = {isa = PBXBuildFile; fileRef = A18931351CAD6A1200458B69 /* client.json */; };
-		A189313B1CAD6A8000458B69 /* sample.zip in Resources */ = {isa = PBXBuildFile; fileRef = A189313A1CAD6A8000458B69 /* sample.zip */; };
 		A189313D1CAD6AF300458B69 /* AssetIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A189313C1CAD6AF300458B69 /* AssetIntegrationTests.swift */; };
+		A18931431CAFF3D500458B69 /* sample.zip in Resources */ = {isa = PBXBuildFile; fileRef = A18931421CAFF3D500458B69 /* sample.zip */; };
 		A1A19C551CA7731D00D38032 /* RomeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A19C541CA7731D00D38032 /* RomeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1A19C5C1CA7731D00D38032 /* RomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A19C511CA7731D00D38032 /* RomeKit.framework */; };
 		A1CE5C931CA83FEB007D705B /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CE5C911CA83FEB007D705B /* ObjectMapper.framework */; };
@@ -61,8 +61,8 @@
 		A18931331CAD6A1200458B69 /* assets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = assets.json; path = "Sample Data/assets.json"; sourceTree = "<group>"; };
 		A18931341CAD6A1200458B69 /* clients.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = clients.json; path = "Sample Data/clients.json"; sourceTree = "<group>"; };
 		A18931351CAD6A1200458B69 /* client.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = client.json; path = "Sample Data/client.json"; sourceTree = "<group>"; };
-		A189313A1CAD6A8000458B69 /* sample.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = sample.zip; path = ../../../../../../../../../Users/bernard/Desktop/sample.zip; sourceTree = "<group>"; };
 		A189313C1CAD6AF300458B69 /* AssetIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssetIntegrationTests.swift; path = "Integration Tests/AssetIntegrationTests.swift"; sourceTree = "<group>"; };
+		A18931421CAFF3D500458B69 /* sample.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = sample.zip; path = "Sample Data/sample.zip"; sourceTree = "<group>"; };
 		A1A19C511CA7731D00D38032 /* RomeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RomeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A19C541CA7731D00D38032 /* RomeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RomeKit.h; sourceTree = "<group>"; };
 		A1A19C561CA7731D00D38032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		A1CE5C9E1CA89F72007D705B /* Sample Data */ = {
 			isa = PBXGroup;
 			children = (
-				A189313A1CAD6A8000458B69 /* sample.zip */,
+				A18931421CAFF3D500458B69 /* sample.zip */,
 				A18931321CAD6A1200458B69 /* asset.json */,
 				A18931331CAD6A1200458B69 /* assets.json */,
 				A18931341CAD6A1200458B69 /* clients.json */,
@@ -340,7 +340,7 @@
 				A18931381CAD6A1200458B69 /* clients.json in Resources */,
 				A18931391CAD6A1200458B69 /* client.json in Resources */,
 				A18931361CAD6A1200458B69 /* asset.json in Resources */,
-				A189313B1CAD6A8000458B69 /* sample.zip in Resources */,
+				A18931431CAFF3D500458B69 /* sample.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
