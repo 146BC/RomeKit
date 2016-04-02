@@ -1,0 +1,18 @@
+language: objective-c
+
+xcode_project: RomeKit.xcodeproj
+xcode_scheme: RomeKit
+osx_image: xcode7.3
+xcode_sdk: macosx10.11
+
+before_install:
+  - brew update
+  - brew install carthage
+  - brew install mongodb
+  - brew install node
+
+script:
+  - mongod --fork --config /usr/local/etc/mongod.conf
+  - ./RomeKitTests/CI/install.sh
+  - carthage bootstrap --platform OSX
+  - xcodebuild clean build test -project RomeKit.xcodeproj -scheme RomeKit
