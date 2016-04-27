@@ -4,11 +4,12 @@ import ObjectMapper
 public class Clients {
     
     public static func all(
+        queue: dispatch_queue_t? = nil,
         completionHandler: ([Client]?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Clients, params: [])
         
-        NetworkManager.sharedInstance().request(.GET, url).responseString { response in
+        NetworkManager.sharedInstance().request(.GET, url).responseString(queue: queue) { response in
             
             switch response.result {
             case .Success(let clientsJSON):
@@ -27,12 +28,13 @@ public class Clients {
     
     public static func create(
         name: String,
+        queue: dispatch_queue_t? = nil,
         completionHandler: (Client?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Clients, params: [])
         let params = ["name": name]
         
-        NetworkManager.sharedInstance().request(.POST, url, parameters: params, encoding: .JSON, headers: nil).responseString { response in
+        NetworkManager.sharedInstance().request(.POST, url, parameters: params, encoding: .JSON, headers: nil).responseString(queue: queue) { response in
             
             switch response.result {
             case .Success(let clientJSON):
@@ -50,11 +52,12 @@ public class Clients {
     
     public static func delete(
         id: String,
+        queue: dispatch_queue_t? = nil,
         completionHandler: (Bool?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Clients, params: [id])
         
-        NetworkManager.sharedInstance().request(.DELETE, url, parameters: nil, encoding: .URL, headers: nil).responseString { response in
+        NetworkManager.sharedInstance().request(.DELETE, url, parameters: nil, encoding: .URL, headers: nil).responseString(queue: queue) { response in
             
             switch response.result {
             case .Success:

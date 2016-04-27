@@ -4,11 +4,12 @@ import ObjectMapper
 public class Assets {
     
     public static func all(
+        queue: dispatch_queue_t? = nil,
         completionHandler: ([Asset]?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Assets, params: [])
         
-        NetworkManager.sharedInstance().request(.GET, url).validate().responseString { response in
+        NetworkManager.sharedInstance().request(.GET, url).validate().responseString(queue: queue) { response in
             
             switch response.result {
             case .Success(let assetsJSON):
@@ -28,11 +29,12 @@ public class Assets {
     public static func getLatestAssetByRevision(
         name: String,
         revision: String,
+        queue: dispatch_queue_t? = nil,
         completionHandler: (Asset?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Assets, params: [name, revision])
         
-        NetworkManager.sharedInstance().request(.GET, url).validate().responseString { response in
+        NetworkManager.sharedInstance().request(.GET, url).validate().responseString(queue: queue) { response in
             
             switch response.result {
             case .Success(let assetJSON):
@@ -51,11 +53,12 @@ public class Assets {
     
     public static func getAssetById(
         id: String,
+        queue: dispatch_queue_t? = nil,
         completionHandler: (Asset?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Assets, params: [id])
         
-        NetworkManager.sharedInstance().request(.GET, url).validate().responseString { response in
+        NetworkManager.sharedInstance().request(.GET, url).validate().responseString(queue: queue) { response in
             
             switch response.result {
             case .Success(let assetJSON):
@@ -76,6 +79,7 @@ public class Assets {
         name: String,
         revision: String,
         data: NSData,
+        queue: dispatch_queue_t? = nil,
         progress: (Int64, Int64, Int64) -> (),
         completionHandler: (Asset?, Errors?) -> ()) {
         
@@ -89,7 +93,7 @@ public class Assets {
             }
             
             }
-            .validate().responseJSON { response in
+            .validate().responseJSON(queue: queue) { response in
                 
                 switch response.result {
                 case .Success(let assetJSON):
@@ -108,11 +112,12 @@ public class Assets {
     
     public static func delete(
         id: String,
+        queue: dispatch_queue_t? = nil,
         completionHandler: (Bool?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Assets, params: [id])
         
-        NetworkManager.sharedInstance().request(.DELETE, url, parameters: nil, encoding: .URL, headers: nil).validate().responseString { response in
+        NetworkManager.sharedInstance().request(.DELETE, url, parameters: nil, encoding: .URL, headers: nil).validate().responseString(queue: queue) { response in
             
             switch response.result {
             case .Success:
@@ -128,12 +133,13 @@ public class Assets {
     public static func updateStatus(
         id: String,
         active: Bool,
+        queue: dispatch_queue_t? = nil,
         completionHandler: (Bool?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Assets, params: [id])
         let params = ["active": active]
         
-        NetworkManager.sharedInstance().request(.PATCH, url, parameters: params, encoding: .JSON, headers: nil).validate().responseString { response in
+        NetworkManager.sharedInstance().request(.PATCH, url, parameters: params, encoding: .JSON, headers: nil).validate().responseString(queue: queue) { response in
             
             switch response.result {
             case .Success:
