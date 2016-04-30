@@ -88,9 +88,7 @@ public class Assets {
         
         NetworkManager.sharedInstance().upload(.POST, url, headers: headers, data: data).progress { bytesWritten, totalBytesWritten, totalBytesExpectedToWrite in
             
-            dispatch_async(dispatch_get_main_queue()) {
                 progress(bytesWritten, totalBytesWritten, totalBytesExpectedToWrite)
-            }
             
             }
             .validate().responseJSON(queue: queue) { response in
