@@ -1,42 +1,37 @@
 import Foundation
 import Alamofire
 
-class NetworkManager {
-    
-    private(set) static var baseUrl: String = String()
-    
-    static var configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-    static var serverTrustPolicies = [String: ServerTrustPolicy]()
-    
-    private static var _sharedInstance: Manager?
-    
-    static var additionalHeaders: [NSObject : AnyObject]? {
-        
+public class NetworkManager {
+
+    public static var additionalHeaders: [AnyHashable : Any]? {
         didSet {
-            if let _ = additionalHeaders {
-                configuration.HTTPAdditionalHeaders = additionalHeaders
-            } else {
-                configuration.HTTPAdditionalHeaders = nil
-            }
-            _sharedInstance = Manager(configuration: configuration, serverTrustPolicyManager: ServerTrustPolicyManager(policies:serverTrustPolicies))
+            configuration.httpAdditionalHeaders = additionalHeaders
+            _shared = self.shared()
         }
-        
     }
-    
-    static func sharedInstance() -> Manager {
-        
-        if _sharedInstance == nil {
-            _sharedInstance = Manager(configuration: configuration, serverTrustPolicyManager: ServerTrustPolicyManager(policies:serverTrustPolicies))
+
+    public static var configuration = URLSessionConfiguration.default
+    public static var serverTrustPolicies = [String: ServerTrustPolicy]()
+    public static var baseUrl: URL?
+
+    private static var _shared: SessionManager?
+
+    public static func shared() -> SessionManager {
+        if _shared == nil {
+            _shared = SessionManager(configuration: configuration, serverTrustPolicyManager: ServerTrustPolicyManager(policies:serverTrustPolicies))
         }
-        return _sharedInstance!
-        
+        return _shared!
     }
-    
-    static func setup(baseUrl: String, apiKey: String) {
-        
+
+    public static func setup(baseUrl: URL, apiKey: String) {
+
         NetworkManager.additionalHeaders = [Headers.API_KEY : apiKey]
         self.baseUrl = baseUrl
-        
+
     }
-    
+
+    public static func clearCache() {
+        URLCache.shared.removeAllCachedResponses()
+    }
+
 }

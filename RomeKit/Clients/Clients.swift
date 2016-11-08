@@ -4,22 +4,22 @@ import ObjectMapper
 public class Clients {
     
     public static func all(
-        queue: dispatch_queue_t? = nil,
-        completionHandler: ([Client]?, Errors?) -> ()) {
+        queue: DispatchQueue? = nil,
+        completion: @escaping ([Client]?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Clients, params: [])
-        
-        NetworkManager.sharedInstance().request(.GET, url).responseString(queue: queue) { response in
+
+        NetworkManager.shared().request(url).responseJSON(queue: queue) { json in
             
-            switch response.result {
-            case .Success(let clientsJSON):
-                if let clients = Mapper<Client>().mapArray(clientsJSON) {
-                    completionHandler(clients, nil)
+            switch json.result {
+            case .success(let clientsJSON):
+                if let clients = Mapper<Client>().mapArray(JSONObject: clientsJSON) {
+                    completion(clients, nil)
                 } else {
-                    completionHandler(nil, Errors.ErrorMappingClients)
+                    completion(nil, Errors.ErrorMappingClients)
                 }
-            case .Failure:
-                completionHandler(nil, Errors.errorTypeFromResponse(response.response))
+            case .failure:
+                completion(nil, Errors.errorTypeFromResponse(json.response))
             }
             
         }
@@ -27,43 +27,50 @@ public class Clients {
     }
     
     public static func create(
-        name: String,
-        queue: dispatch_queue_t? = nil,
-        completionHandler: (Client?, Errors?) -> ()) {
+        _ name: String,
+        queue: DispatchQueue? = nil,
+        completion: @escaping (Client?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Clients, params: [])
         let params = ["name": name]
-        
-        NetworkManager.sharedInstance().request(.POST, url, parameters: params, encoding: .JSON, headers: nil).responseString(queue: queue) { response in
+
+        NetworkManager.shared().request(url,
+                                        method: .post,
+                                        parameters: params,
+                                        encoding: JSONEncoding.default)
+            .responseJSON(queue: queue) { data in
             
-            switch response.result {
-            case .Success(let clientJSON):
-                if let client = Mapper<Client>().map(clientJSON) {
-                    completionHandler(client, nil)
+            switch data.result {
+            case .success(let clientJSON):
+                if let client = Mapper<Client>().map(JSONObject: clientJSON) {
+                    completion(client, nil)
                 } else {
-                    completionHandler(nil, Errors.ErrorMappingClients)
+                    completion(nil, Errors.ErrorMappingClients)
                 }
-            case .Failure:
-                completionHandler(nil, Errors.errorTypeFromResponse(response.response))
+            case .failure:
+                completion(nil, Errors.errorTypeFromResponse(data.response))
             }
             
         }
     }
     
     public static func delete(
-        id: String,
-        queue: dispatch_queue_t? = nil,
-        completionHandler: (Bool?, Errors?) -> ()) {
+        _ id: String,
+        queue: DispatchQueue? = nil,
+        completion: @escaping (Bool?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Clients, params: [id])
-        
-        NetworkManager.sharedInstance().request(.DELETE, url, parameters: nil, encoding: .URL, headers: nil).responseString(queue: queue) { response in
+
+        NetworkManager.shared().request(url,
+                                        method: .delete,
+                                        encoding: URLEncoding.default)
+            .responseString(queue: queue) { response in
             
             switch response.result {
-            case .Success:
-                completionHandler(true, nil)
-            case .Failure:
-                completionHandler(false, Errors.errorTypeFromResponse(response.response))
+            case .success:
+                completion(true, nil)
+            case .failure:
+                completion(false, Errors.errorTypeFromResponse(response.response))
             }
             
         }

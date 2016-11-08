@@ -1,0 +1,6 @@
+[submodule "Carthage/Checkouts/Alamofire"]
+	path = Carthage/Checkouts/Alamofire
+	url = https://3f5106fd14b14d5e0c4ab1572ccaf390c01ee9e7@github.com/Alamofire/Alamofire.git
+[submodule "Carthage/Checkouts/ObjectMapper"]
+	path = Carthage/Checkouts/ObjectMapper
+	url = https://3f5106fd14b14d5e0c4ab1572ccaf390c01ee9e7@github.com/Hearst-DD/ObjectMapper.git
