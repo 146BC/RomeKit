@@ -1,3 +1,5 @@
+import Foundation
+
 public class Bootstrap {
     
     required public init?(baseUrl: URL, apiKey: String) {

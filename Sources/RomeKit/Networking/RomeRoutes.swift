@@ -1,3 +1,5 @@
+import Foundation
+
 public enum RomeRoutes: String {
     
     case Assets

@@ -1,4 +1,5 @@
 import ObjectMapper
+import Foundation
 
 //TODO: Convert to Structs and use ImmutableMappable
 public class Asset: Mappable {

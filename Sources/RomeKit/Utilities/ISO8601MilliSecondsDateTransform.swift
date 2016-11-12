@@ -1,4 +1,5 @@
 import ObjectMapper
+import Foundation
 
 public class ISO8601MilliSecondsDateTransform: DateFormatterTransform {
     

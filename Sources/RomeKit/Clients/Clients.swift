@@ -1,5 +1,6 @@
 import Alamofire
 import ObjectMapper
+import Foundation
 
 public class Clients {
     
