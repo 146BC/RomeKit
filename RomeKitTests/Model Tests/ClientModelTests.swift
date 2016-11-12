@@ -7,9 +7,9 @@ class ClientModelTests: XCTestCase {
 
     func testModel() {
         
-        if let clientJSON = FileHelpers.loadJSONStringFromFile("client") {
+        if let clientJSON = FileHelpers.loadJSONStringFromFile(name: "client") {
             
-            if let client = Mapper<Client>().map(clientJSON) {
+            if let client = Mapper<Client>().map(JSONString: clientJSON) {
                 
                 XCTAssertEqual(client.id, "56f68a12a3de01599f17224a")
                 XCTAssertEqual(client.api_key, "fbdc5668-c02f-456d-9e8f-6d02fb8ef490")
@@ -27,9 +27,9 @@ class ClientModelTests: XCTestCase {
     
     func testModelArray() {
         
-        if let clientsJSON = FileHelpers.loadJSONStringFromFile("clients") {
+        if let clientsJSON = FileHelpers.loadJSONStringFromFile(name: "clients") {
             
-            if let clients = Mapper<Client>().mapArray(clientsJSON) {
+            if let clients = Mapper<Client>().mapArray(JSONString:  clientsJSON) {
                 
                 XCTAssertEqual(clients[0].id, "56f68a12a3de01599f17224a")
                 XCTAssertEqual(clients[0].api_key, "fbdc5668-c02f-456d-9e8f-6d02fb8ef490")
