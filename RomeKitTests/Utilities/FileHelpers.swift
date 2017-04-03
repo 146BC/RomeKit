@@ -2,11 +2,11 @@ import Foundation
 
 class FileHelpers {
     
-    static func loadJSONStringFromFile(name: String) -> String? {
+    static func loadJSONStringFromFile(_ name: String) -> String? {
         
-        if let path = NSBundle(forClass: self).pathForResource(name, ofType: ".json") {
-            if let data = NSData(contentsOfFile: path) {
-                return String(data: data, encoding:NSUTF8StringEncoding)
+        if let path = Bundle(for: self).path(forResource: name, ofType: ".json") {
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
+                return String(data: data, encoding:String.Encoding.utf8)
             }
         }
         
@@ -14,10 +14,10 @@ class FileHelpers {
         
     }
     
-    static func loadZipDataFromFile(name: String) -> NSData? {
+    static func loadZipDataFromFile(_ name: String) -> Data? {
         
-        if let path = NSBundle(forClass: self).pathForResource(name, ofType: ".zip") {
-            if let data = NSData(contentsOfFile: path) {
+        if let path = Bundle(for: self).path(forResource: name, ofType: ".zip") {
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
                 return data
             }
         }

@@ -12,7 +12,7 @@ class ClientIntegrationTests: XCTestCase {
     
     func testAddClient() {
         
-        let expectation = expectationWithDescription(#function)
+        let expectation = self.expectation(description: #function)
         
         Clients.create("MacMini", completionHandler: { (client, error) in
             
@@ -27,7 +27,7 @@ class ClientIntegrationTests: XCTestCase {
             expectation.fulfill()
         })
         
-        waitForExpectationsWithTimeout(10.0) { error in
+        waitForExpectations(timeout: 10.0) { error in
             if let error = error {
                 XCTFail("Error: \(error.localizedDescription)")
             }
@@ -37,7 +37,7 @@ class ClientIntegrationTests: XCTestCase {
     
     func testAllClients() {
         
-        let expectation = expectationWithDescription(#function)
+        let expectation = self.expectation(description: #function)
         
         Clients.all { (clients, error) in
             
@@ -60,7 +60,7 @@ class ClientIntegrationTests: XCTestCase {
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(10.0) { error in
+        waitForExpectations(timeout: 10.0) { error in
             if let error = error {
                 XCTFail("Error: \(error.localizedDescription)")
             }
@@ -70,7 +70,7 @@ class ClientIntegrationTests: XCTestCase {
     
     func testDeleteClient() {
         
-        let expectation = expectationWithDescription(#function)
+        let expectation = self.expectation(description: #function)
         
         var newClientId = ""
         
@@ -102,7 +102,7 @@ class ClientIntegrationTests: XCTestCase {
             
         }
         
-        waitForExpectationsWithTimeout(10.0) { error in
+        waitForExpectations(timeout: 10.0) { error in
             if let error = error {
                 XCTFail("Error: \(error.localizedDescription)")
             }

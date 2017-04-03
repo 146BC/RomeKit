@@ -6,7 +6,7 @@ public class Client: Mappable {
     public var name: String?
     public var api_key: String?
     
-    required public init?(_ map: Map) {
+    required public init?(map: Map) {
         
     }
     

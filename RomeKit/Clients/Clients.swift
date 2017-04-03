@@ -4,21 +4,21 @@ import ObjectMapper
 public class Clients {
     
     public static func all(
-        queue: dispatch_queue_t? = nil,
-        completionHandler: ([Client]?, Errors?) -> ()) {
+        _ queue: DispatchQueue? = nil,
+        completionHandler: @escaping ([Client]?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Clients, params: [])
         
-        NetworkManager.sharedInstance().request(.GET, url).responseString(queue: queue) { response in
+        NetworkManager.sharedInstance().request(url, method: .get).responseString(queue: queue) { response in
             
             switch response.result {
-            case .Success(let clientsJSON):
-                if let clients = Mapper<Client>().mapArray(clientsJSON) {
+            case .success(let clientsJSON):
+                if let clients = Mapper<Client>().mapArray(JSONString: clientsJSON) {
                     completionHandler(clients, nil)
                 } else {
-                    completionHandler(nil, Errors.ErrorMappingClients)
+                    completionHandler(nil, Errors.errorMappingClients)
                 }
-            case .Failure:
+            case .failure:
                 completionHandler(nil, Errors.errorTypeFromResponse(response.response))
             }
             
@@ -27,23 +27,23 @@ public class Clients {
     }
     
     public static func create(
-        name: String,
-        queue: dispatch_queue_t? = nil,
-        completionHandler: (Client?, Errors?) -> ()) {
+        _ name: String,
+        queue: DispatchQueue? = nil,
+        completionHandler: @escaping (Client?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Clients, params: [])
         let params = ["name": name]
         
-        NetworkManager.sharedInstance().request(.POST, url, parameters: params, encoding: .JSON, headers: nil).responseString(queue: queue) { response in
+        NetworkManager.sharedInstance().request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseString(queue: queue) { response in
             
             switch response.result {
-            case .Success(let clientJSON):
-                if let client = Mapper<Client>().map(clientJSON) {
+            case .success(let clientJSON):
+                if let client = Mapper<Client>().map(JSONString: clientJSON) {
                     completionHandler(client, nil)
                 } else {
-                    completionHandler(nil, Errors.ErrorMappingClients)
+                    completionHandler(nil, Errors.errorMappingClients)
                 }
-            case .Failure:
+            case .failure:
                 completionHandler(nil, Errors.errorTypeFromResponse(response.response))
             }
             
@@ -51,23 +51,20 @@ public class Clients {
     }
     
     public static func delete(
-        id: String,
-        queue: dispatch_queue_t? = nil,
-        completionHandler: (Bool?, Errors?) -> ()) {
+        _ id: String,
+        queue: DispatchQueue? = nil,
+        completionHandler: @escaping (Bool?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(.Clients, params: [id])
         
-        NetworkManager.sharedInstance().request(.DELETE, url, parameters: nil, encoding: .URL, headers: nil).responseString(queue: queue) { response in
-            
+        NetworkManager.sharedInstance().request(url, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseString(queue: queue) { response in
             switch response.result {
-            case .Success:
+            case .success:
                 completionHandler(true, nil)
-            case .Failure:
+            case .failure:
                 completionHandler(false, Errors.errorTypeFromResponse(response.response))
             }
-            
         }
-        
     }
     
 }

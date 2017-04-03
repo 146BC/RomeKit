@@ -1,30 +1,30 @@
 import Foundation
 
-public enum Errors: ErrorType {
+public enum Errors: Error {
     
     // Clients
-    case ErrorMappingClient
-    case ErrorMappingClients
+    case errorMappingClient
+    case errorMappingClients
     
     // Assets
-    case ErrorMappingAsset
-    case ErrorMappingAssets
+    case errorMappingAsset
+    case errorMappingAssets
     
     // HTTP
-    case EntityNotFound
-    case BadRequest
-    case ServiceError
+    case entityNotFound
+    case badRequest
+    case serviceError
     
-    public static func errorTypeFromResponse(response: NSHTTPURLResponse?) -> Errors {
+    public static func errorTypeFromResponse(_ response: HTTPURLResponse?) -> Errors {
         
         if let response = response {
             switch response.statusCode {
-            case 404: return .EntityNotFound
-            case 400: return .BadRequest
-            default: return .ServiceError
+            case 404: return .entityNotFound
+            case 400: return .badRequest
+            default: return .serviceError
             }
         } else {
-            return .ServiceError
+            return .serviceError
         }
         
     }

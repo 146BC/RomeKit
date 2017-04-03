@@ -12,16 +12,15 @@ class AssetIntegrationTests: XCTestCase {
     
     func testAddAsset() {
         
-        let expectation = expectationWithDescription(#function)
+        let expectation = self.expectation(description: #function)
         
         let name = "Sample"
         let revision = "1.0"
         
         if let sampleAsset = FileHelpers.loadZipDataFromFile("sample") {
-            
-            Assets.create(name, revision: revision, data: sampleAsset, progress: { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
+            Assets.create(name, revision: revision, data: sampleAsset, progress: { (completedUnitCount, totalUnitCount) in
                 
-                    XCTAssertTrue(totalBytesExpectedToWrite > 0)
+                    XCTAssertTrue(totalUnitCount > 0)
                 
                 }, completionHandler: { (asset, error) in
                     
@@ -46,7 +45,7 @@ class AssetIntegrationTests: XCTestCase {
             XCTFail("Error loading sample data from zip")
         }
         
-        waitForExpectationsWithTimeout(10.0) { error in
+        waitForExpectations(timeout: 10.0) { error in
             
             if let error = error {
                 XCTFail("Error: \(error.localizedDescription)")
@@ -58,7 +57,7 @@ class AssetIntegrationTests: XCTestCase {
     
     func testAllAssets() {
         
-        let expectation = expectationWithDescription(#function)
+        let expectation = self.expectation(description: #function)
         
         Assets.all { (assets, error) in
             
@@ -81,7 +80,7 @@ class AssetIntegrationTests: XCTestCase {
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(10.0) { error in
+        waitForExpectations(timeout: 10.0) { error in
             if let error = error {
                 XCTFail("Error: \(error.localizedDescription)")
             }
@@ -91,14 +90,14 @@ class AssetIntegrationTests: XCTestCase {
     
     func testLatestAssetFromRevision() {
         
-        let expectation = expectationWithDescription(#function)
+        let expectation = self.expectation(description: #function)
         
         let name = "Sample"
         let revision = "1.0"
         
         if let sampleAsset = FileHelpers.loadZipDataFromFile("sample") {
             
-            Assets.create(name, revision: revision, data: sampleAsset, progress: {_,_,_ in }, completionHandler: { (asset, error) in
+            Assets.create(name, revision: revision, data: sampleAsset, progress: {_,_ in }, completionHandler: { (asset, error) in
                     
                     if let asset = asset {
                         
@@ -127,7 +126,7 @@ class AssetIntegrationTests: XCTestCase {
             XCTFail("Error loading sample data from zip")
         }
         
-        waitForExpectationsWithTimeout(10.0) { error in
+        waitForExpectations(timeout: 10.0) { error in
             if let error = error {
                 XCTFail("Error: \(error.localizedDescription)")
             }
@@ -137,14 +136,14 @@ class AssetIntegrationTests: XCTestCase {
     
     func testAssetInactive() {
         
-        let expectation = expectationWithDescription(#function)
+        let expectation = self.expectation(description: #function)
         
         let name = "Sample"
         let revision = "1.0"
         
         if let sampleAsset = FileHelpers.loadZipDataFromFile("sample") {
             
-            Assets.create(name, revision: revision, data: sampleAsset, progress: {_,_,_ in }, completionHandler: { (asset, error) in
+            Assets.create(name, revision: revision, data: sampleAsset, progress: {_,_ in }, completionHandler: { (asset, error) in
                 
                 if let asset = asset {
                     
@@ -185,7 +184,7 @@ class AssetIntegrationTests: XCTestCase {
             XCTFail("Error loading sample data from zip")
         }
         
-        waitForExpectationsWithTimeout(10.0) { error in
+        waitForExpectations(timeout: 10.0) { error in
             if let error = error {
                 XCTFail("Error: \(error.localizedDescription)")
             }
@@ -195,14 +194,14 @@ class AssetIntegrationTests: XCTestCase {
     
     func testAssetById() {
         
-        let expectation = expectationWithDescription(#function)
+        let expectation = self.expectation(description: #function)
         
         let name = "Sample"
         let revision = "1.0"
         
         if let sampleAsset = FileHelpers.loadZipDataFromFile("sample") {
             
-            Assets.create(name, revision: revision, data: sampleAsset, progress: {_,_,_ in }, completionHandler: { (asset, error) in
+            Assets.create(name, revision: revision, data: sampleAsset, progress: {_,_ in }, completionHandler: { (asset, error) in
                 
                 if let asset = asset {
                     
@@ -233,7 +232,7 @@ class AssetIntegrationTests: XCTestCase {
             XCTFail("Error loading sample data from zip")
         }
         
-        waitForExpectationsWithTimeout(10.0) { error in
+        waitForExpectations(timeout: 10.0) { error in
             if let error = error {
                 XCTFail("Error: \(error.localizedDescription)")
             }
@@ -243,14 +242,14 @@ class AssetIntegrationTests: XCTestCase {
     
     func testDeleteAsset() {
         
-        let expectation = expectationWithDescription(#function)
+        let expectation = self.expectation(description: #function)
         
         let name = "Sample"
         let revision = "1.0"
         
         if let sampleAsset = FileHelpers.loadZipDataFromFile("sample") {
             
-            Assets.create(name, revision: revision, data: sampleAsset, progress: {_,_,_ in }, completionHandler: { (asset, error) in
+            Assets.create(name, revision: revision, data: sampleAsset, progress: {_,_ in }, completionHandler: { (asset, error) in
                 
                 if let asset = asset {
                     
@@ -263,7 +262,7 @@ class AssetIntegrationTests: XCTestCase {
                             
                             if deleted != nil && deleted! {
                                 Assets.getAssetById(assetId, completionHandler: { (asset, error) in
-                                    XCTAssertEqual(error, Errors.EntityNotFound)
+                                    XCTAssertEqual(error, Errors.entityNotFound)
                                     expectation.fulfill()
                                 })
                             } else {
@@ -285,7 +284,7 @@ class AssetIntegrationTests: XCTestCase {
             XCTFail("Error loading sample data from zip")
         }
         
-        waitForExpectationsWithTimeout(10.0) { error in
+        waitForExpectations(timeout: 10.0) { error in
             if let error = error {
                 XCTFail("Error: \(error.localizedDescription)")
             }

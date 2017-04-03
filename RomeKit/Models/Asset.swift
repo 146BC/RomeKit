@@ -7,10 +7,10 @@ public class Asset: Mappable {
     public var revision: String?
     public var file_extension: String?
     public var active: Bool?
-    public var created_at: NSDate?
-    public var updated_at: NSDate?
+    public var created_at: Date?
+    public var updated_at: Date?
     
-    required public init?(_ map: Map) {
+    required public init?(map: Map) {
         
     }
     

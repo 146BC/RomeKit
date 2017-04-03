@@ -3,36 +3,36 @@ import Alamofire
 
 class NetworkManager {
     
-    private(set) static var baseUrl: String = String()
+    fileprivate(set) static var baseUrl: String = String()
     
-    static var configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+    static var configuration = URLSessionConfiguration.default
     static var serverTrustPolicies = [String: ServerTrustPolicy]()
     
-    private static var _sharedInstance: Manager?
+    fileprivate static var _sharedInstance: SessionManager?
     
-    static var additionalHeaders: [NSObject : AnyObject]? {
+    static var additionalHeaders: [AnyHashable: Any]? {
         
         didSet {
             if let _ = additionalHeaders {
-                configuration.HTTPAdditionalHeaders = additionalHeaders
+                configuration.httpAdditionalHeaders = additionalHeaders
             } else {
-                configuration.HTTPAdditionalHeaders = nil
+                configuration.httpAdditionalHeaders = nil
             }
-            _sharedInstance = Manager(configuration: configuration, serverTrustPolicyManager: ServerTrustPolicyManager(policies:serverTrustPolicies))
+            _sharedInstance = SessionManager(configuration: configuration, serverTrustPolicyManager: ServerTrustPolicyManager(policies:serverTrustPolicies))
         }
         
     }
     
-    static func sharedInstance() -> Manager {
+    static func sharedInstance() -> SessionManager {
         
         if _sharedInstance == nil {
-            _sharedInstance = Manager(configuration: configuration, serverTrustPolicyManager: ServerTrustPolicyManager(policies:serverTrustPolicies))
+            _sharedInstance = SessionManager(configuration: configuration, serverTrustPolicyManager: ServerTrustPolicyManager(policies:serverTrustPolicies))
         }
         return _sharedInstance!
         
     }
     
-    static func setup(baseUrl: String, apiKey: String) {
+    static func setup(_ baseUrl: String, apiKey: String) {
         
         NetworkManager.additionalHeaders = [Headers.API_KEY : apiKey]
         self.baseUrl = baseUrl
