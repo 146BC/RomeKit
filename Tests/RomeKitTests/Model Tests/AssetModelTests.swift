@@ -9,7 +9,7 @@ class AssetModelTests: XCTestCase {
         
         if let assetJSON = FileHelpers.loadJSONStringFromFile("asset") {
             
-            if let asset = Mapper<Asset>().map(assetJSON) {
+            if let asset = Mapper<Asset>().map(JSONString: assetJSON) {
                 
                 XCTAssertEqual(asset.id, "25f68e7701fc5b12a0d17e32")
                 XCTAssertEqual(asset.name, "Alamofire")
@@ -33,7 +33,7 @@ class AssetModelTests: XCTestCase {
         
         if let assetsJSON = FileHelpers.loadJSONStringFromFile("assets") {
             
-            if let assets = Mapper<Asset>().mapArray(assetsJSON) {
+            if let assets = Mapper<Asset>().mapArray(JSONString: assetsJSON) {
                 
                 XCTAssertEqual(assets[0].id, "25f68e7701fc5b12a0d17e32")
                 XCTAssertEqual(assets[0].name, "Alamofire")

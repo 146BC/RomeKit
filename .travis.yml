@@ -2,8 +2,8 @@ language: objective-c
 
 xcode_project: RomeKit.xcodeproj
 xcode_scheme: RomeKit
-osx_image: xcode8
-xcode_sdk: macosx10.11
+osx_image: xcode9
+xcode_sdk: macosx10.12
 
 before_install:
   - brew update
@@ -11,6 +11,6 @@ before_install:
 
 script:
   - mongod --fork --config /usr/local/etc/mongod.conf
-  - ./RomeKitTests/CI/install.sh
-  - carthage bootstrap --platform OSX
-  - xcodebuild clean build test -project RomeKit.xcodeproj -scheme RomeKit
+  - ./Tests/RomeKitTests/CI/install.sh
+  - swift build
+  - swift test

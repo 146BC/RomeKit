@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Errors: ErrorType {
+public enum Errors: Error {
     
     // Clients
     case ErrorMappingClient
@@ -15,7 +15,7 @@ public enum Errors: ErrorType {
     case BadRequest
     case ServiceError
     
-    public static func errorTypeFromResponse(response: NSHTTPURLResponse?) -> Errors {
+    public static func errorTypeFromResponse(response: HTTPURLResponse?) -> Errors {
         
         if let response = response {
             switch response.statusCode {
