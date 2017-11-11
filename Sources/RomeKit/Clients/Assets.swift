@@ -1,35 +1,40 @@
-import Alamofire
 import Foundation
-import ObjectMapper
 import Dispatch
 
 public class Assets {
     
-    public static func all(
-        queue: DispatchQueue? = nil,
-        completionHandler: @escaping ([Asset]?, Errors?) -> ()) {
+    public static func all(queue: DispatchQueue,
+						   completionHandler: @escaping ([Asset]?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(route: .assets, params: [])
-        
-        NetworkManager.sharedInstance.request(url, method: .get).validate().responseString(queue: queue) { response in
-            switch response.result {
-            case .success(let assetsJSON):
-                if let assets = Mapper<Asset>().mapArray(JSONString: assetsJSON) {
-                    completionHandler(assets, nil)
-                } else {
-                    completionHandler(nil, Errors.ErrorMappingAssets)
-                }
-            case .failure:
-                completionHandler(nil, Errors.errorTypeFromResponse(response: response.response))
-            }
-        }
+		var request = URLRequest(url: url)
+		request.httpMethod = "GET"
+		
+		let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+			queue.async {
+				
+				guard let data = data else {
+					completionHandler(nil, Errors.errorTypeFromResponse(response: response))
+					return
+				}
+				
+				do {
+					let assets = try JSONDecoder().decode(Array<Asset>.self, from: data)
+					completionHandler(assets, nil)
+				} catch {
+					completionHandler(nil, Errors.ErrorMappingAssets)
+				}
+			}
+		}
+		
+		task.resume()
     }
-    
-    public static func getLatestAssetByRevision(
-        name: String,
-        revision: String,
-        queue: DispatchQueue? = nil,
-        completionHandler: @escaping (Asset?, Errors?) -> ()) {
+	
+	/*
+    public static func getLatestAssetByRevision(name: String,
+												revision: String,
+												queue: DispatchQueue? = nil,
+												completionHandler: @escaping (Asset?, Errors?) -> ()) {
         
         let url = RomeRoutes.url(route: .assets, params: [name, revision])
         
@@ -135,5 +140,6 @@ public class Assets {
         }
         
     }
+	*/
     
 }

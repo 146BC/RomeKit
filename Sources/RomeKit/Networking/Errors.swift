@@ -15,9 +15,9 @@ public enum Errors: Error {
     case BadRequest
     case ServiceError
     
-    public static func errorTypeFromResponse(response: HTTPURLResponse?) -> Errors {
+    public static func errorTypeFromResponse(response: URLResponse?) -> Errors {
         
-        if let response = response {
+        if let response = response as? HTTPURLResponse {
             switch response.statusCode {
             case 404: return .EntityNotFound
             case 400: return .BadRequest

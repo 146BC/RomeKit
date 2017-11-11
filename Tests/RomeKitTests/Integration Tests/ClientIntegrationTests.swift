@@ -2,7 +2,7 @@ import XCTest
 import RomeKit
 
 class ClientIntegrationTests: XCTestCase {
-    
+    /*
     override func setUp() {
         
         Networking.setup()
@@ -109,5 +109,5 @@ class ClientIntegrationTests: XCTestCase {
         }
         
     }
-
+	*/
 }

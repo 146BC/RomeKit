@@ -1,8 +1,7 @@
-import Alamofire
-import ObjectMapper
 import Dispatch
 
 public class Clients {
+	/*
     public static func all(
         queue: DispatchQueue? = nil,
         completionHandler: @escaping ([Client]?, Errors?) -> ()) {
@@ -66,5 +65,5 @@ public class Clients {
         }
         
     }
-    
+    */
 }

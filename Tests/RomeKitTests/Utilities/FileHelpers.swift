@@ -17,15 +17,15 @@ class FileHelpers {
         }
         return nil
     }
-    
-    static func loadJSONStringFromFile(_ name: String) -> String? {
-        if let url = url(forResource: name, ofType: "json") {
-            if let data = try? Data(contentsOf: url) {
-                return String(data: data, encoding: .utf8)
-            }
-        }
-        return nil
-    }
+	
+	public static func getJSONDataFrom(name: String) -> Data? {
+		if let url = url(forResource: name, ofType: "json") {
+			if let data = try? Data(contentsOf: url) {
+				return data
+			}
+		}
+		return nil
+	}
     
     static func loadZipDataFromFile(_ name: String) -> Data? {
         if let url = url(forResource: name, ofType: "zip") {
