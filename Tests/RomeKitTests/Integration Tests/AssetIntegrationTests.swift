@@ -2,14 +2,51 @@ import XCTest
 import RomeKit
 
 class AssetIntegrationTests: XCTestCase {
+	
+	override func setUp() {
+		Networking.setup()
+		super.setUp()
+	}
+	
+	func testAllAssets() {
+		
+		let dispatchGroup = DispatchGroup()
+		let queue = DispatchQueue(label: "")
+		
+		dispatchGroup.enter()
+		
+		let exp = expectation(description: #function)
+		
+		Assets.all(queue: queue) { (assets, error) in
+			if let assets = assets {
+				
+				XCTAssertTrue(assets.count == 1)
+				
+				XCTAssertEqual(assets[0].name, "Sample")
+				XCTAssertEqual(assets[0].fileExtension, "zip")
+				XCTAssertEqual(assets[0].revision, "1.0")
+				XCTAssertEqual(assets[0].active, true)
+				XCTAssertNotNil(assets[0].id)
+				XCTAssertNotNil(assets[0].createdAt)
+				XCTAssertNotNil(assets[0].updatedAt)
+				
+			} else {
+				XCTFail("Error fetching assets")
+			}
+			
+			dispatchGroup.leave()
+			exp.fulfill()
+		}
+		
+		waitForExpectations(timeout: 10.0) { error in
+			if let error = error {
+				XCTFail("Error: \(error.localizedDescription)")
+			}
+		}
+	}
+	
     /*
-    override func setUp() {
-        
-        Networking.setup()
-        super.setUp()
-        
-    }
-    
+	
     func testAddAsset() {
         
         let exp = expectation(description: #function)
@@ -52,39 +89,6 @@ class AssetIntegrationTests: XCTestCase {
                 XCTFail("Error: \(error.localizedDescription)")
             }
             
-        }
-        
-    }
-    
-    func testAllAssets() {
-        
-        let exp = expectation(description: #function)
-        
-        Assets.all { (assets, error) in
-            
-            if let assets = assets {
-                
-                XCTAssertTrue(assets.count == 1)
-                
-                XCTAssertEqual(assets[0].name, "Sample")
-                XCTAssertEqual(assets[0].file_extension, "zip")
-                XCTAssertEqual(assets[0].revision, "1.0")
-                XCTAssertEqual(assets[0].active, true)
-                XCTAssertNotNil(assets[0].id)
-                XCTAssertNotNil(assets[0].created_at)
-                XCTAssertNotNil(assets[0].updated_at)
-                
-            } else {
-                XCTFail("Error fetching assets")
-            }
-            
-            exp.fulfill()
-        }
-        
-        waitForExpectations(timeout: 10.0) { error in
-            if let error = error {
-                XCTFail("Error: \(error.localizedDescription)")
-            }
         }
         
     }

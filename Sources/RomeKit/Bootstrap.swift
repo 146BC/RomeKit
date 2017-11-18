@@ -1,7 +1,7 @@
 public class Bootstrap {
     
     required public init?(baseUrl: String, apiKey: String) {
-        NetworkManager.setup(baseUrl: baseUrl, apiKey: apiKey)
+        NetworkManager.shared.setup(baseUrl: baseUrl, apiKey: apiKey)
     }
     
     public func start() {

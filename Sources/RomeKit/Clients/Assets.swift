@@ -5,14 +5,11 @@ public class Assets {
     
     public static func all(queue: DispatchQueue,
 						   completionHandler: @escaping ([Asset]?, Errors?) -> ()) {
-        
-        let url = RomeRoutes.url(route: .assets, params: [])
-		var request = URLRequest(url: url)
-		request.httpMethod = "GET"
 		
-		let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let url = RomeRoutes.url(route: .assets, params: [])
+		
+		let task = NetworkManager.shared.session().dataTask(with: url) { (data, response, error) in
 			queue.async {
-				
 				guard let data = data else {
 					completionHandler(nil, Errors.errorTypeFromResponse(response: response))
 					return
